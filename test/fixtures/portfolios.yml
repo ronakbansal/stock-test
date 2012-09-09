@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: MyString
+  script_symbol: MyString
+  buyorsale: MyString
+  quantity: MyString
+  user_price: MyString
+
+two:
+  user_id: MyString
+  script_symbol: MyString
+  buyorsale: MyString
+  quantity: MyString
+  user_price: MyString

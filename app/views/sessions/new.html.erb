@@ -1,0 +1,16 @@
+
+
+
+
+<%= form_tag sessions_path, :class=> 'box login' do %>
+  <fieldset class="boxBody">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email] , :tabindex => '1'%>
+    <%= label_tag :password %>
+    <%= password_field_tag :password , nil, :tabindex => '2'%>
+  </fieldset>
+  <footer>
+  <%= submit_tag "Login" , :class => 'btnLogin' , :tabindex => '4' %>
+ </footer> 
+<% end %>
+
