@@ -1,0 +1,19 @@
+<h1> My Stocks</h1>
+<table style="border:5px solid #990000;">
+<tr style="border: solid 2px lightgrey;">
+<th style="border: solid 2px lightgrey;">Symbol</th>
+<th style="border: solid 2px lightgrey;">Last Trade Price</th>
+</tr>
+<% @my_scripts.each do |script| %>
+
+<tr style="border: solid 2px lightgrey;">
+<td style="border: solid 2px lightgrey;"><%= script.script_symbol %></td>
+<td style="border: solid 2px lightgrey;">0</td>
+</tr>
+<% end %>
+</table> 
+	
+	
+
+
+

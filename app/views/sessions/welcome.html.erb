@@ -19,12 +19,16 @@
 <%#= @symbol.results(:to_hash).output %><br><br>
 <%#= @quote.results(:to_hash).output %>
 
+<%= link_to 'My Portfolio' ,:controller => "sessions", :action => "my_portfolio" %>
+
      <%= form_tag :controller => 'sessions', :action => 'search', :method => 'get' do %>
         <p>
             Enter Search term : <%= text_field_tag :search, params[:search] %>
             <%= submit_tag 'Search', :class => "btn" %>
         </p>
     <% end %>
+	
+	
 
 
 

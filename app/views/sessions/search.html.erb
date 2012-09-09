@@ -4,7 +4,7 @@
 
 <div id="user_nav">
   <% if current_user %>
-    Logged in as <%= current_user.email %>.<%= current_user.id %>
+    Logged in as <%= current_user.email %>.
     <%= link_to "Log out", log_out_path %>
   <% else %>
     <%= link_to "Sign up", sign_up_path %> or
@@ -16,6 +16,7 @@
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
 <br/><br/>
+<%= link_to 'My Portfolio', :controller => "sessions", :action => "my_portfolio" %>
 
      <%= form_tag :controller => 'sessions', :action => 'search', :method => 'get' do %>
         <p>
@@ -42,7 +43,7 @@
 <td style="border: solid 2px lightgrey;">NSE</td>
 <% end %>
 
-<td style="border: solid 2px lightgrey;"><a href="#">Add</a></td>
+<td style="border: solid 2px lightgrey;"><%= link_to 'Add' ,:controller => "sessions", :action => "add_to_portfolio", :script => result[:symbol]%></td>
 </tr>
 <% end%>
 <% end %>
@@ -57,7 +58,7 @@
 <td style="border: solid 2px lightgrey;">NSE</td>
 <% end %>
 
-<td style="border: solid 2px lightgrey;"><a href="#">Add</a></td>
+<td style="border: solid 2px lightgrey;"><%= link_to 'Add' ,:controller => "sessions", :action => "add_to_portfolio", :script => result[:symbol]%></td>
 </tr>
 <% end%>
 <% end %>

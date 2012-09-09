@@ -33,9 +33,18 @@ def search
 @symbol_alt = YahooStock::ScripSymbol.new(@search_term+".BO")
 @results = @symbol.results(:to_hash).output
 @results_alt = @symbol_alt.results(:to_hash).output
-a = current_user.id
-p "------------------"
-p a
+
 #@quote = YahooStock::Quote.new(:stock_symbols => ["MOTILALFS.BO", "TAKMCHN.BO","TCSFL.BO","TCS.NS","TCSQF.BO","TCS.BO"])
+end
+def add_to_portfolio
+@add_to_table = Portfolio.create(:user_id => current_user.id, :script_symbol => params[:script])
+#@port = Portfolio.find_by_user_id(:all,current_user.id)
+if @add_to_table
+render "welcome"
+end
+
+end
+def my_portfolio
+@my_scripts = Portfolio.find(:all, :conditions => [ "user_id = ?", current_user.id])
 end
 end
