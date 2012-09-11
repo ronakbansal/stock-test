@@ -43,28 +43,48 @@
 <td style="border: solid 2px lightgrey;">NSE</td>
 <% end %>
 
-<td style="border: solid 2px lightgrey;"><%= link_to 'Add' ,:controller => "sessions", :action => "add_to_portfolio", :script => result[:symbol]%></td>
+<td style="border: solid 2px lightgrey;"><%= link_to 'Add', '#', :class => 'add', :name=> result[:symbol]%></td>
 </tr>
 <% end%>
-<% end %>
-<% @results_alt.each do |result| %>
-<% if result[:symbol].include?(".BO") or result[:symbol].include?(".NS") %>
-<tr style="border: solid 2px lightgrey;">
-<td style="border: solid 2px lightgrey;"><%= result[:symbol] %></td>
-<td style="border: solid 2px lightgrey;"><%= result[:name] %></td>
-<% if result[:symbol].include?(".BO") %>
-<td style="border: solid 2px lightgrey;">BSE</td>
-<% else %>
-<td style="border: solid 2px lightgrey;">NSE</td>
 <% end %>
 
-<td style="border: solid 2px lightgrey;"><%= link_to 'Add' ,:controller => "sessions", :action => "add_to_portfolio", :script => result[:symbol]%></td>
-</tr>
-<% end%>
-<% end %>
 </table> 
 <%#= @quote.results(:to_hash).output %>
 <%#= @stock.last %>
-	
+
+<div id="dialog-form" style="border:2px solid;">
+  <%= form_tag do %><fieldset>
+      <div>
+    <span>Script Symbol: 
+      <%= text_field_tag :script_symbol, params[:script_symbol] %>
+    </span>
+    </div>
+	<br/>
+    <div>
+    <span id="buy_sale">Buy/Sale<br/>
+      Buy: <%= radio_button_tag 'mode', 'Buy' %><br/>
+	  Sell: <%= radio_button_tag 'mode', 'Sell' %>
+    </span>
+    </div>
+    <br />
+    <div>
+    <span>Quantity
+      <%= text_field_tag :quantity, params[:quantity] %>
+    </span>
+    </div>
+    <br />
+    <div>
+    <span>Price
+      <%= text_field_tag :user_price, params[:user_price] %>
+    </span>
+    </div>
+    
+    <div>
+      <%= submit_tag 'Submit',:id=>"add_to_db"%>
+    </div>
+  </fieldset>
+
+    <% end %>
+</div>
 
 

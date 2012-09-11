@@ -6,11 +6,15 @@ get "log_out" => "sessions#destroy", :as => "log_out"
 get "log_in" => "sessions#new", :as => "log_in"
 get "sign_up" => "users#new", :as => "sign_up"
 match 'sessions/search' => 'sessions#search', :as => "search"
-match 'sessions/addtoportfolio' => 'sessions#add_to_portfolio', :as => "add"
+# match 'sessions/addtoportfolio' => 'sessions#add_to_portfolio', :as => "add"
 match 'sessions/myportfolio' => 'sessions#my_portfolio', :as => "my"
 root :to => "sessions#new"
 resources :users
-resources :sessions
+resources :sessions do
+      collection do
+      post 'add_to_portfolio'
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

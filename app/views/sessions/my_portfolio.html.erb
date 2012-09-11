@@ -3,12 +3,22 @@
 <tr style="border: solid 2px lightgrey;">
 <th style="border: solid 2px lightgrey;">Symbol</th>
 <th style="border: solid 2px lightgrey;">Last Trade Price</th>
+<th style="border: solid 2px lightgrey;">Buy Quantity</th>
+<th style="border: solid 2px lightgrey;">Buy Price</th>
+<th style="border: solid 2px lightgrey;">Sell Quantity</th>
+<th style="border: solid 2px lightgrey;">Sell Price</th>
+<th style="border: solid 2px lightgrey;">Profit/Loss</th>
 </tr>
 <% @my_scripts.each do |script| %>
 
 <tr style="border: solid 2px lightgrey;">
 <td style="border: solid 2px lightgrey;"><%= script.script_symbol %></td>
-<td style="border: solid 2px lightgrey;">0</td>
+<td style="border: solid 2px lightgrey;"><%= find_last_trade(script.script_symbol)%></td>
+<td style="border: solid 2px lightgrey;"><%= buy_quantity(script)%></td>
+<td style="border: solid 2px lightgrey;"><%= buy_price(script)%></td>
+<td style="border: solid 2px lightgrey;"><%= sell_quantity(script)%></td>
+<td style="border: solid 2px lightgrey;"><%= sell_price(script)%></td>
+<td style="border: solid 2px lightgrey;">0<%#= profit_loss(script)%></td>
 </tr>
 <% end %>
 </table> 
